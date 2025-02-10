@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+                /* The image used */
+                /* background-image: url("egg.jpg"); */
+
+                background: rgba(0, 0, 0, .25) url("egg.jpg");
+                /* Full height */
+                height: 100%; 
+                background-blend-mode: darken ;
+                /* Center and scale the image nicely */
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                opacity: 100%;
+            }
+
+            #hard {
+                border-radius: 12px;
+                top: 10%;
+                left:65%;
+                width:100px;
+                height:40px;
+                position: absolute;
+                z-index: 2;
+                background: orange; 
+            }
+
+            #soft {
+                background-image: url("ruben-rodriguez-GFZZmRbyPFQ-unsplash.jpg");
+                background-size: cover;
+                border-radius: 12px;
+                top: 10%;
+                left:20%;
+                width:500px;
+                height:500px;
+                position: absolute;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="soft" onclick="location.href='softBoiled.html'">softBoiled</button>
+        <button id="hard" onclick="location.href='hardBoiled.html'">hardBoiled</button>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            #time {
+                text-align: center;
+            }
+
+            div {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="time" style="font-size: 100px;">08:00</h1>
+        <div>
+            <button id="softBoiledEggs">start</button>
+            <button id="stop">Stop Timer</button>
+            <button id="restart">Restart Timer</button>
+            <button onclick="location.href='choosePage.html'">Back To Choose</button>
+        </div>
+    </body>
+    <script>
+        let sec = 480;
+        let HTML_timer = document.getElementById("time");
+
+        function secondsToTime(sec) {
+            let second = padZeros(sec % 60);
+            let minute = padZeros((sec - second) / 60);
+            return minute + ":" + second;
+        }
+
+        function padZeros(num) {
+            num = num.toString();
+            if(num.length < 2) {
+                num = "0" + num;
+            }
+            return num;
+        }
+
+        let timer;
+
+        let softBoilBtn = document.getElementById("softBoiledEggs"); 
+        softBoilBtn.addEventListener("click", () => {
+            timer = setInterval(() => {
+                HTML_timer.textContent = secondsToTime(sec);
+                sec--;
+
+                if(sec < 0) {
+                    clearInterval(timer);
+                    HTML_timer.textContent = "Finished";
+                }
+            }, 1000);
+        })
+
+        let stopBtn = document.getElementById("stop");
+        stopBtn.addEventListener("click", () => {clearInterval(timer)});
+
+        let restartBtn = document.getElementById("restart");
+        restartBtn.addEventListener("click", () => {
+            sec = 480;
+            HTML_timer.textContent = "08.00";
+        });
+    </script>
+</html>
