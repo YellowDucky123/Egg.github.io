@@ -41,8 +41,14 @@
 
         let timer;
 
+        let stop = true;
+
         let hardBoilBtn = document.getElementById("hardBoiledEggs"); 
         hardBoilBtn.addEventListener("click", () => {
+            if(!stop) {
+                return;
+            }
+            stop = false;
             timer = setInterval(() => {
                 HTML_timer.textContent = secondsToTime(sec);
                 sec--;
@@ -55,7 +61,10 @@
         })
 
         let stopBtn = document.getElementById("stop");
-        stopBtn.addEventListener("click", () => {clearInterval(timer)});
+        stopBtn.addEventListener("click", () => {
+            clearInterval(timer)
+            stop = true;
+        });
 
         let restartBtn = document.getElementById("restart");
         restartBtn.addEventListener("click", () => {
